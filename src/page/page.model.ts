@@ -6,6 +6,7 @@ export enum Category {
 }
 
 export class PageModel {
+	_id: string
 	сategory: Category
 	direction: string
 	title: string
