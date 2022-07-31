@@ -1,5 +1,5 @@
 import { Category } from '../page.model'
 
-export class PageDto {
+export class FindPageDto {
 	category: Category
 }

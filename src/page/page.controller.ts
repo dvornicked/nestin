@@ -8,6 +8,7 @@ import {
 	Patch,
 	Post,
 } from '@nestjs/common'
+import { FindPageDto } from './dto/findPage.dto'
 import { PageModel } from './page.model'
 
 @Controller('page')
@@ -26,5 +27,5 @@ export class PageController {
 
 	@HttpCode(200)
 	@Post()
-	async find(@Body() dto: FindProductDto) {}
+	async find(@Body() dto: FindPageDto) {}
 }
