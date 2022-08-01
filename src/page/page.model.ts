@@ -1,3 +1,5 @@
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
+
 export enum Category {
 	Courses,
 	Services,
@@ -5,23 +7,59 @@ export enum Category {
 	Products,
 }
 
-export class PageModel {
-	_id: string
-	сategory: Category
-	direction: string
+export class HhData {
+	@Prop()
+	count: number
+
+	@Prop()
+	juniorSalary: number
+
+	@Prop()
+	middleSalary: number
+
+	@Prop()
+	seniorSalary: number
+}
+
+export class PageAdvantage {
+	@Prop()
 	title: string
+
+	@Prop()
+	description: string
+}
+
+@Schema()
+export class PageModel {
+	@Prop({ enum: Category })
+	сategory: Category
+
+	@Prop()
+	direction: string
+
+	@Prop({ unique: true })
+	alias: string
+
+	@Prop()
+	title: string
+
+	@Prop()
 	pageCategory: string
-	hh?: {
-		count: number
-		juniorSalary: number
-		middleSalary: number
-		seniorSalary: number
-	}
-	advantages: {
-		title: string
-		description: string
-	}[]
+
+	@Prop({ type: () => HhData })
+	hh?: HhData
+
+	@Prop({ type: () => [PageAdvantage] })
+	advantages: PageAdvantage[]
+
+	@Prop()
 	seo: string
+
+	@Prop()
 	tagsTitle: string
+
+	@Prop()
 	tags: string[]
 }
+
+export const PageSchema = SchemaFactory.createForClass(PageModel)

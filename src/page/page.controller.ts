@@ -8,13 +8,18 @@ import {
 	Patch,
 	Post,
 } from '@nestjs/common'
+import { ConfigService } from '@nestjs/config'
 import { FindPageDto } from './dto/findPage.dto'
 import { PageModel } from './page.model'
 
 @Controller('page')
 export class PageController {
+	constructor(private readonly configService: ConfigService) {}
+
 	@Post('create')
-	async create(@Body() dto: Omit<PageModel, '_id'>) {}
+	async create(@Body() dto: Omit<PageModel, '_id'>) {
+		this.configService.get('MONGO_LOGIN')
+	}
 
 	@Get(':id')
 	async get(@Param('id') id: string) {}
