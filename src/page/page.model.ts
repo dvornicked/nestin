@@ -7,6 +7,8 @@ export enum Category {
 	Products,
 }
 
+export type PageDocument = PageModel & Document
+
 export class HhData {
 	@Prop()
 	count: number

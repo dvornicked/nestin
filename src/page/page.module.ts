@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config'
 import { MongooseModule } from '@nestjs/mongoose'
 import { PageController } from './page.controller'
 import { PageSchema } from './page.model'
+import { PageService } from './page.service'
 
 @Module({
 	imports: [
@@ -15,5 +16,6 @@ import { PageSchema } from './page.model'
 		]),
 	],
 	controllers: [PageController],
+	providers: [PageService],
 })
 export class PageModule {}
