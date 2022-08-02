@@ -8,7 +8,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
 
 import { PassportModule } from '@nestjs/passport'
 import { JwtStrategy } from './strategies/jwt.strategy'
-import { getJWTConfig } from '../../src/configs/jwt.config'
+import { getJWTConfig } from 'src/configs/jwt.config'
 
 @Module({
 	imports: [

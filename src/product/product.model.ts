@@ -1,5 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 
+export type ProductDocument = ProductModel & Document
+
 class ProductCharacteristics {
 	@Prop()
 	name: string
@@ -20,13 +22,10 @@ export class ProductModel {
 	price: number
 
 	@Prop()
-	oldPrice: number
+	oldPrice?: number
 
 	@Prop()
 	credit: number
-
-	@Prop()
-	calculatedRating: number
 
 	@Prop()
 	description: string
